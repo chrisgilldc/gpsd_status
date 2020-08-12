@@ -60,3 +60,4 @@ The only items you should need to configure are:
 	"GPSD Discovery: Gar18x: GPS Mode"
 	Rather than
 	"GPSD Discovery: /dev/ttyS1: GPS Mode"
+
