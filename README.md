@@ -1,7 +1,6 @@
 # gpsd_status
 Zabbix Monitoring of GPSD
 
-
 Summary ---
 This tool connects to gpsd and returns data for Zabbix monitoring.
 
@@ -11,9 +10,7 @@ GPS Status
 Number of Satellites Visible
 Number of Satellites Used
 
-Also supports LLD of individual satellites and reports on their position 
-and operating status. Probably not that useful in and of itself, but could
-be useful to external tools.
+Also supports LLD of individual satellites and reports on their position and operating status. Probably not that useful in and of itself, but could be useful to external tools.
 
 Per-satellite data send in via trigger:
 Azimuth
@@ -29,11 +26,8 @@ Known Limits ---
 multiple.
 2. Similarly should support remote GPSD devices, but wasn't tested.
 3. There are likely lots of edge cases not handled here.
-4. Everything is based on the gpsd_json documentation. This is only as accurate as that is.
- ( Available here:  https://gpsd.gitlab.io/gpsd/gpsd_json.html )
-5. This entire tool was written as a side project by a systems engineer who 
-is in no way a trained or fully qualified developer. This is unlikely to be 
-"pretty" code and plenty of "works for me" stuff going on here.
+4. Everything is based on the gpsd_json documentation. This is only as accurate as that is. ( Available here:  https://gpsd.gitlab.io/gpsd/gpsd_json.html )
+5. This entire tool was written as a side project by a systems engineer who is in no way a trained or fully qualified developer. This is unlikely to be "pretty" code and plenty of "works for me" stuff going on here.
 
 
 Requires ---
