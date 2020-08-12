@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zabbix_export>
+    <version>5.0</version>
+    <date>2020-08-12T19:50:27Z</date>
+    <groups>
+        <group>
+            <name>Templates</name>
+        </group>
+    </groups>
+    <templates>
+        <template>
+            <template>Template App GPSD</template>
+            <name>Template App GPSD</name>
+            <description>Template to monitor status of GPS devices connected via GPSD.</description>
+            <groups>
+                <group>
+                    <name>Templates</name>
+                </group>
+            </groups>
+            <applications>
+                <application>
+                    <name>GPSD</name>
+                </application>
+            </applications>
+            <discovery_rules>
+                <discovery_rule>
+                    <name>GPSD Discovery</name>
+                    <key>gpsd.discover</key>
+                    <delay>1d</delay>
+                    <description>Discovery of available GPSD GPS devices</description>
+                    <item_prototypes>
+                        <item_prototype>
+                            <name>{#GPSNAME}: GPS Mode</name>
+                            <key>gpsd.info[{#GPSDEV},mode]</key>
+                            <applications>
+                                <application>
+                                    <name>GPSD</name>
+                                </application>
+                            </applications>
+                            <valuemap>
+                                <name>GPSD Modes</name>
+                            </valuemap>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>{#GPSNAME}: GPS Status</name>
+                            <key>gpsd.info[{#GPSDEV},status]</key>
+                            <applications>
+                                <application>
+                                    <name>GPSD</name>
+                                </application>
+                            </applications>
+                            <valuemap>
+                                <name>GPSD Status</name>
+                            </valuemap>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>{#GNSSNAME} Satellite {#PRN}: Azimuth</name>
+                            <type>TRAP</type>
+                            <key>gpsd.sat.az[{#GPSDEV},{#PRN}]</key>
+                            <delay>0</delay>
+                            <applications>
+                                <application>
+                                    <name>GPSD</name>
+                                </application>
+                            </applications>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>{#GNSSNAME} Satellite {#PRN}: Elevation</name>
+                            <type>TRAP</type>
+                            <key>gpsd.sat.el[{#GPSDEV},{#PRN}]</key>
+                            <delay>0</delay>
+                            <applications>
+                                <application>
+                                    <name>GPSD</name>
+                                </application>
+                            </applications>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>{#GNSSNAME} Satellite {#PRN}: GNSS ID</name>
+                            <type>TRAP</type>
+                            <key>gpsd.sat.gnssid[{#GPSDEV},{#PRN}]</key>
+                            <delay>0</delay>
+                            <applications>
+                                <application>
+                                    <name>GPSD</name>
+                                </application>
+                            </applications>
+                            <valuemap>
+                                <name>GPSD GNSS Mappings</name>
+                            </valuemap>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>{#GNSSNAME} Satellite {#PRN}: Signal Strength</name>
+                            <type>TRAP</type>
+                            <key>gpsd.sat.ss[{#GPSDEV},{#PRN}]</key>
+                            <delay>0</delay>
+                            <applications>
+                                <application>
+                                    <name>GPSD</name>
+                                </application>
+                            </applications>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>{#GNSSNAME} Satellite {#PRN}: Space Vehicle ID</name>
+                            <type>TRAP</type>
+                            <key>gpsd.sat.svid[{#GPSDEV},{#PRN}]</key>
+                            <delay>0</delay>
+                            <applications>
+                                <application>
+                                    <name>GPSD</name>
+                                </application>
+                            </applications>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>{#GNSSNAME} Satellite {#PRN}: Used</name>
+                            <type>TRAP</type>
+                            <key>gpsd.sat.used[{#GPSDEV},{#PRN}]</key>
+                            <delay>0</delay>
+                            <applications>
+                                <application>
+                                    <name>GPSD</name>
+                                </application>
+                            </applications>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>{#GPSNAME}: Satellites Used</name>
+                            <type>TRAP</type>
+                            <key>gpsd.sat.used[{#GPSDEV}]</key>
+                            <delay>0</delay>
+                            <applications>
+                                <application>
+                                    <name>GPSD</name>
+                                </application>
+                            </applications>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>{#GPSNAME}: Satellites Used</name>
+                            <type>TRAP</type>
+                            <key>gpsd.sat.visible[{#GPSDEV}]</key>
+                            <delay>0</delay>
+                            <applications>
+                                <application>
+                                    <name>GPSD</name>
+                                </application>
+                            </applications>
+                        </item_prototype>
+                    </item_prototypes>
+                </discovery_rule>
+            </discovery_rules>
+        </template>
+    </templates>
+    <value_maps>
+        <value_map>
+            <name>GPSD GNSS Mappings</name>
+            <mappings>
+                <mapping>
+                    <value>0</value>
+                    <newvalue>GPS</newvalue>
+                </mapping>
+                <mapping>
+                    <value>2</value>
+                    <newvalue>Galileo</newvalue>
+                </mapping>
+                <mapping>
+                    <value>3</value>
+                    <newvalue>Beidou</newvalue>
+                </mapping>
+                <mapping>
+                    <value>5</value>
+                    <newvalue>QZSS</newvalue>
+                </mapping>
+                <mapping>
+                    <value>6</value>
+                    <newvalue>GLONASS</newvalue>
+                </mapping>
+            </mappings>
+        </value_map>
+        <value_map>
+            <name>GPSD Modes</name>
+            <mappings>
+                <mapping>
+                    <value>0</value>
+                    <newvalue>No mode yet seen</newvalue>
+                </mapping>
+                <mapping>
+                    <value>1</value>
+                    <newvalue>No fix</newvalue>
+                </mapping>
+                <mapping>
+                    <value>2</value>
+                    <newvalue>2D</newvalue>
+                </mapping>
+                <mapping>
+                    <value>3</value>
+                    <newvalue>3D</newvalue>
+                </mapping>
+            </mappings>
+        </value_map>
+        <value_map>
+            <name>GPSD Status</name>
+            <mappings>
+                <mapping>
+                    <value>2</value>
+                    <newvalue>DGPS Fix</newvalue>
+                </mapping>
+                <mapping>
+                    <value>3</value>
+                    <newvalue>RTK Fixed point</newvalue>
+                </mapping>
+                <mapping>
+                    <value>4</value>
+                    <newvalue>RTK Floating point</newvalue>
+                </mapping>
+                <mapping>
+                    <value>5</value>
+                    <newvalue>DR Fix</newvalue>
+                </mapping>
+                <mapping>
+                    <value>6</value>
+                    <newvalue>GNSSDR Fix</newvalue>
+                </mapping>
+                <mapping>
+                    <value>7</value>
+                    <newvalue>Time (surveyed) fix</newvalue>
+                </mapping>
+                <mapping>
+                    <value>8</value>
+                    <newvalue>Simulated</newvalue>
+                </mapping>
+                <mapping>
+                    <value>9</value>
+                    <newvalue>P(Y) fix</newvalue>
+                </mapping>
+            </mappings>
+        </value_map>
+    </value_maps>
+</zabbix_export>

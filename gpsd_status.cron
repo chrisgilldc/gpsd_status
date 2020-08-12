@@ -1,0 +1,3 @@
+# Update GPSd satellite data every 15m
+*/15 * * * * /etc/zabbix/scripts/gpsd_status.py -d <device> -s | zabbix_sender -s <Host> -z <Zabbix Server> -i -
+
