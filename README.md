@@ -2,6 +2,7 @@
 Zabbix Monitoring of GPSD
 
 Summary ---
+
 This tool connects to gpsd and returns data for Zabbix monitoring.
 
 On a per-GPS unit basis, this supports active checks for:
@@ -31,8 +32,9 @@ multiple.
 
 
 Requires ---
+
 Python3
-Python GPSD libraries (Centos8: python3-gpsd)
+Python GPSD libraries (On Centos 8, RPM python3-gpsd)
 
 Installation ---
 
